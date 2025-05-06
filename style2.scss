@@ -1,0 +1,289 @@
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap);
+
+$gray-3: #333; // 見出し、文字
+$gray-7: #777; // 補足説明
+$gray-b: #bbb; // プレイスホルダー
+$gray-d: #ddd; // ボーダー
+$gray-e: #eee; // ボタン
+$theme-color: #b7282c;
+
+* {
+  margin: 0px;
+  padding: 0px;
+  color: $gray-3;
+  caret-color: transparent; // キャレットがうるさいので入力項目以外で除去
+
+  font: {
+    weight: 400;
+    size: 16px;
+    family: "Noto Sans JP", sans-serif;
+    style: normal;
+    optical-sizing: auto;
+  }
+}
+
+// === タグ ===
+
+main {
+  display: grid;
+  width: 100% * 0.4;
+  margin: 50px 100% * 0.3;
+  padding: 30px;
+  border: 1px solid $gray-d;
+
+  a {
+    font-size: 14px;
+    text-decoration: none;
+    color: $theme-color;
+    &:after {
+      content: "open_in_new";
+      font-family: "Material Icons";
+      vertical-align: baseline;
+      margin-left: 4px;
+    }
+  }
+}
+
+footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 120px;
+  background: #efefef;
+
+  a {
+    font-size: 14px;
+    text-decoration: none;
+    color: $gray-7;
+  }
+}
+
+// === 項目 ===
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+p {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+label {
+  color: $gray-3;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="date"],
+textarea,
+select {
+  width: 500px;
+  padding: 10px 14px;
+  margin: 8px 0px;
+  border: 1px solid $gray-d;
+  box-sizing: border-box;
+  display: block;
+  caret-color: auto; // キャレットを表示する
+  resize: none; // テキストエリア用
+
+  &:focus {
+    outline: none; // フォーカス時の枠線を除去
+  }
+
+  &:placeholder {
+    color: $gray-b;
+  }
+}
+
+// input[type="radio"],
+// input[type="checkbox"] {
+//   margin: 6px 0px;
+// }
+
+input[type="date"] {
+  width: auto;
+  caret-color: transparent;
+}
+
+// テーブル
+table {
+  margin-left: 10px;
+  width: auto;
+  border-collapse: collapse;
+  border: 1px solid $gray-d;
+  letter-spacing: 1px;
+  text-align: left;
+}
+
+thead,
+tfoot {
+  font-weight: bold;
+}
+
+th,
+td {
+  border: 1px solid $gray-d;
+  padding: 8px 10px;
+  white-space: nowrap;
+}
+
+th {
+  font-weight: bold;
+}
+
+tbody > tr:nth-of-type(even) {
+  // background-color: $gray-e;
+}
+
+// === 自作クラス ===
+
+// 必須項目
+.required::after {
+  content: " *";
+  color: $theme-color;
+
+  content: "必須";
+  margin-left: 5px;
+  padding: 2px 4px;
+  color: white;
+  background-color: #e7282c;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.box {
+  margin-top: 25px;
+}
+
+// フッター
+.box2 {
+  width: 100% * 0.4;
+  margin: 0px 100% * 0.3;
+  padding-top: 30px;
+}
+
+.button-box {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.spacer {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.description {
+  padding: 4px;
+  margin: 6px 0px;
+  font-size: 14px;
+  color: $gray-7;
+  display: block;
+}
+
+.container-1 {
+  display: grid;
+  // grid-template-columns: 30% 30% 30%;
+  justify-content: space-between;
+  // border: 1px solid #ccc;
+  direction: rtl;
+}
+
+.copy-url {
+  position: relative;
+  // border: 1px solid #ccc;
+  white-space: nowrap;
+  font-size: 14px;
+  margin: 20px 0px;
+  color: $gray-7;
+  cursor: pointer;
+  &:hover {
+    color: lighten($gray-7, 20%);
+  }
+  &:before {
+    content: "content_copy";
+    font-family: "Material Icons";
+    vertical-align: baseline;
+    margin-left: 4px;
+  }
+
+  .tooltip {
+    position: absolute;
+    bottom: 120%; /* ボタンの上に配置 */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    visibility: hidden;
+    background-color: $gray-3;
+    color: white;
+    text-align: center;
+    padding: 6px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 5px;
+      border-style: solid;
+      border-color: #333 transparent transparent transparent;
+    }
+  }
+
+  .show {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.material-icons {
+  font-size: 14px;
+  color: $gray-7;
+}
+
+// 共通ボタンスタイル
+%button-base {
+  margin: 30px 0px;
+  margin-right: 20px;
+  width: 200px;
+  height: 50px;
+  text-align: center;
+  align-content: center;
+  display: inline-block;
+  cursor: pointer;
+
+  background-color: $theme-color;
+  color: white;
+  &:hover {
+    background-color: lighten($theme-color, 5%);
+  }
+}
+
+// ボタン
+.button {
+  // デフォルト
+  &-default {
+    @extend %button-base;
+  }
+  // 一時保存
+  &-save {
+    @extend %button-base;
+    background-color: $gray-e;
+    color: $gray-3;
+    &:hover {
+      background-color: darken($gray-e, 5%);
+    }
+  }
+}

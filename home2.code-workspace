@@ -1,0 +1,51 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    // フォーマッターの設定
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+    // HTMLの補完・自動クローズ
+    "html.autoClosingTags": true,
+    "html.autoCreateQuotes": true,
+    "html.format.enable": true,
+
+    // Emmet（補完機能）の有効化
+    "emmet.includeLanguages": {
+      "javascript": "javascriptreact",
+      "vue-html": "html",
+      "plaintext": "pug"
+    },
+    "emmet.triggerExpansionOnTab": true,
+
+    // ライブプレビュー拡張機能（Live Server）と連携
+    "liveServer.settings.port": 5500,
+    "liveServer.settings.root": "/",
+    "liveServer.settings.wait": 500,
+
+    // ファイル保存時の自動リロード
+    "files.autoSave": "onFocusChange",
+
+    "files.associations": {
+      "*.html": "html",
+      "*.css": "css",
+      "*.js": "javascript"
+    },
+
+    "editor.tabSize": 2,
+    "prettier.printWidth": 256
+  },
+  "extensions": {
+    "recommendations": [
+      "esbenp.prettier-vscode", // コードフォーマッター
+      "ritwickdey.LiveServer", // ライブサーバー
+      "formulahendry.auto-close-tag", // タグの自動閉じ
+      "formulahendry.auto-rename-tag", // タグの自動リネーム
+      "xabikos.HTMLSnippets" // HTMLスニペット
+    ]
+  }
+}
